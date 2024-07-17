@@ -1,4 +1,4 @@
-import { routes, falcon, empire } from "./data.js"
+import { routes, falcon, empire } from "./data/data.js"
 
 const giveMeTheOdds = (falcon, empire) => {
     const paths = getAllPaths(
