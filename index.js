@@ -41,11 +41,19 @@ const giveMeTheOdds = (routes, falcon, empire) => {
 
     let current_destinations =  routes[falcon.departure].destinations
 
-    for (const key in current_destinations){
-        console.log(key)
-    }
+    const output = getPathsToArrival(current_destinations)
 
-    console.log(current_destinations)
+    return output
+}
+
+const getPathsToArrival = (destinations, output='') => {
+    if (destinations["Endor"]) return output
+
+    for (const key in destinations){
+        console.log(key)
+        output += key
+        getPathsToArrival(routes[key].destinations, output)
+    }
 }
 
 console.log(giveMeTheOdds(routes, falcon, empire.first))
